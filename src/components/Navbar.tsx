@@ -1,28 +1,48 @@
 "use client";
 
-import { useState } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
-    <nav className="w-full px-6 py-4 flex justify-between items-center">
-      <h1 className="text-xl font-bold">(007)</h1>
+    <nav className="sticky top-0 z-50 flex justify-between items-center px-8 md:px-20 py-4 bg-white dark:bg-gray-900 shadow-sm">
 
-      <ul className="hidden md:flex gap-8">
-        <li>Home</li>
-        <li>About</li>
-        <li>Tech Stack</li>
-        <li>Projects</li>
-        <li>Contact</li>
-      </ul>
+      {/* Logo */}
+      <h1 className="text-xl font-bold">
+        Alfred Makura
+      </h1>
 
-      <button
-        className="md:hidden"
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        ☰
-      </button>
+      {/* Navigation */}
+      <div className="flex items-center gap-6">
+
+        {/* REAL NAV BUTTONS */}
+        <button onClick={() => scrollToSection("home")}>
+          Home
+        </button>
+
+        <button onClick={() => scrollToSection("tech")}>
+          Tech Stack
+        </button>
+
+        <button onClick={() => scrollToSection("projects")}>
+          Projects
+        </button>
+
+        <button onClick={() => scrollToSection("contact")}>
+          Contact
+        </button>
+
+        {/* Theme Toggle */}
+        <ThemeToggle />
+
+      </div>
     </nav>
   );
 }
