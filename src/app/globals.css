@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fix sticky navbar overlap */
+section {
+  scroll-margin-top: 100px;
+}
+
 /* Light mode */
 body {
   @apply bg-white text-black transition-colors duration-300;
