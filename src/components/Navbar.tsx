@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { FaGithub, FaTwitter, FaLinkedin, FaMoon, FaSun } from "react-icons/fa";
+import { HiMenu, HiX } from "react-icons/hi";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -9,8 +10,8 @@ export default function Navbar() {
 
   // Load saved theme
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
+    const theme = localStorage.getItem("theme");
+    if (theme === "dark") {
       document.documentElement.classList.add("dark");
       setDark(true);
     }
@@ -21,66 +22,81 @@ export default function Navbar() {
     if (dark) {
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
-      setDark(false);
     } else {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
-      setDark(true);
     }
+    setDark(!dark);
   };
 
   return (
-    <nav className="w-full fixed top-0 left-0 bg-white dark:bg-[#020617] shadow-sm z-50">
-      <div className="flex justify-between items-center px-6 md:px-16 py-4">
+    <nav className="fixed top-0 left-0 w-full bg-white dark:bg-[#020617] shadow-md z-50">
+      <div className="flex items-center justify-between px-6 md:px-16 py-4">
 
-        {/* Logo */}
-        <h1 className="text-xl font-bold text-black dark:text-white">
-          Alfred Makura
-        </h1>
-
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-8 text-gray-700 dark:text-gray-300 font-medium">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#tech">Tech Stack</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-
-        {/* Right Side (Desktop) */}
-        <div className="hidden md:flex items-center gap-4">
-          
-          {/* Theme Toggle */}
-          <button onClick={toggleTheme}>
-            {dark ? <Sun /> : <Moon />}
-          </button>
-
+        {/* LOGO */}
+        <div className="font-bold text-lg leading-tight">
+          <p className="text-purple-500">{`{007}`}</p>
+          <p className="text-black dark:text-white text-sm">alfredmk</p>
         </div>
 
-        {/* Mobile Controls */}
-        <div className="flex md:hidden items-center gap-4">
-          
-          {/* Theme Toggle */}
-          <button onClick={toggleTheme}>
-            {dark ? <Sun /> : <Moon />}
+        {/* DESKTOP MENU */}
+        <div className="hidden md:flex items-center gap-10 text-gray-600 dark:text-gray-300">
+          <a href="#home" className="hover:text-purple-500">Home</a>
+          <a href="#about" className="hover:text-purple-500">About</a>
+          <a href="#tech" className="hover:text-purple-500">Tech Stack</a>
+          <a href="#projects" className="hover:text-purple-500">Projects</a>
+          <a href="#contact" className="hover:text-purple-500">Contact</a>
+        </div>
+
+        {/* RIGHT SIDE */}
+        <div className="hidden md:flex items-center gap-5 text-gray-600 dark:text-gray-300 text-xl">
+
+          {/* THEME TOGGLE */}
+          <button onClick={toggleTheme} className="hover:text-purple-500">
+            {dark ? <FaSun /> : <FaMoon />}
           </button>
 
-          {/* Hamburger */}
-          <button onClick={() => setOpen(!open)}>
-            {open ? <X size={28} /> : <Menu size={28} />}
-          </button>
+          {/* SOCIALS */}
+          <a href="https://github.com/alfred2504" target="_blank">
+            <FaGithub className="hover:text-purple-500" />
+          </a>
 
+          <a href="https://x.com/makura_alfred" target="_blank">
+            <FaTwitter className="hover:text-purple-500" />
+          </a>
+
+          <a href="https://www.linkedin.com/in/alfred-makura-9b16a4208" target="_blank">
+            <FaLinkedin className="hover:text-purple-500" />
+          </a>
+        </div>
+
+        {/* MOBILE MENU BUTTON */}
+        <div className="md:hidden text-2xl" onClick={() => setOpen(!open)}>
+          {open ? <HiX /> : <HiMenu />}
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
       {open && (
-        <div className="md:hidden bg-white dark:bg-[#020617] px-6 pb-6">
-          <ul className="flex flex-col gap-6 text-gray-700 dark:text-gray-300 font-medium">
-            <li><a href="#home" onClick={() => setOpen(false)}>Home</a></li>
-            <li><a href="#tech" onClick={() => setOpen(false)}>Tech Stack</a></li>
-            <li><a href="#projects" onClick={() => setOpen(false)}>Projects</a></li>
-            <li><a href="#contact" onClick={() => setOpen(false)}>Contact</a></li>
-          </ul>
+        <div className="md:hidden flex flex-col items-center gap-6 py-6 bg-white dark:bg-[#020617] text-gray-700 dark:text-gray-300">
+
+          <a href="#home" onClick={() => setOpen(false)}>Home</a>
+          <a href="#about" onClick={() => setOpen(false)}>About</a>
+          <a href="#tech" onClick={() => setOpen(false)}>Tech Stack</a>
+          <a href="#projects" onClick={() => setOpen(false)}>Projects</a>
+          <a href="#contact" onClick={() => setOpen(false)}>Contact</a>
+
+          {/* THEME TOGGLE MOBILE */}
+          <button onClick={toggleTheme} className="text-xl">
+            {dark ? <FaSun /> : <FaMoon />}
+          </button>
+
+          {/* SOCIALS */}
+          <div className="flex gap-5 text-xl mt-4">
+            <FaGithub />
+            <FaTwitter />
+            <FaLinkedin />
+          </div>
         </div>
       )}
     </nav>
