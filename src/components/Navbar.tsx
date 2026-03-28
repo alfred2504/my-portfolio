@@ -1,14 +1,23 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { FaGithub, FaTwitter, FaLinkedin, FaMoon, FaSun } from "react-icons/fa";
+import {
+  FaGithub,
+  FaTwitter,
+  FaLinkedin,
+  FaMoon,
+  FaSun,
+} from "react-icons/fa";
 import { HiMenu, HiX } from "react-icons/hi";
+
+const sections = ["home", "about", "tech", "projects", "contact"];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [dark, setDark] = useState(false);
+  const [active, setActive] = useState("home");
 
-  // Load saved theme
+  // THEME LOAD
   useEffect(() => {
     const theme = localStorage.getItem("theme");
     if (theme === "dark") {
@@ -17,7 +26,7 @@ export default function Navbar() {
     }
   }, []);
 
-  // Toggle theme
+  // THEME TOGGLE
   const toggleTheme = () => {
     if (dark) {
       document.documentElement.classList.remove("dark");
@@ -28,6 +37,36 @@ export default function Navbar() {
     }
     setDark(!dark);
   };
+
+  // ACTIVE SECTION DETECTION
+  useEffect(() => {
+    const handleScroll = () => {
+      sections.forEach((section) => {
+        const el = document.getElementById(section);
+        if (el) {
+          const top = el.offsetTop - 100;
+          const bottom = top + el.offsetHeight;
+
+          if (window.scrollY >= top && window.scrollY < bottom) {
+            setActive(section);
+          }
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // LINK STYLE
+  const linkClass = (section: string) =>
+    `cursor-pointer ${
+      active === section
+        ? "text-purple-500 font-semibold"
+        : "hover:text-purple-500"
+    }`;
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-white dark:bg-[#020617] shadow-md z-50">
@@ -41,11 +80,13 @@ export default function Navbar() {
 
         {/* DESKTOP MENU */}
         <div className="hidden md:flex items-center gap-10 text-gray-600 dark:text-gray-300">
-          <a href="#home" className="hover:text-purple-500">Home</a>
-          <a href="#about" className="hover:text-purple-500">About</a>
-          <a href="#tech" className="hover:text-purple-500">Tech Stack</a>
-          <a href="#projects" className="hover:text-purple-500">Projects</a>
-          <a href="#contact" className="hover:text-purple-500">Contact</a>
+
+          <a href="#home" className={linkClass("home")}>Home</a>
+          <a href="#about" className={linkClass("about")}>About</a>
+          <a href="#tech" className={linkClass("tech")}>Tech Stack</a>
+          <a href="#projects" className={linkClass("projects")}>Projects</a>
+          <a href="#contact" className={linkClass("contact")}>Contact</a>
+
         </div>
 
         {/* RIGHT SIDE */}
@@ -56,7 +97,6 @@ export default function Navbar() {
             {dark ? <FaSun /> : <FaMoon />}
           </button>
 
-          {/* SOCIALS */}
           <a href="https://github.com/alfred2504" target="_blank">
             <FaGithub className="hover:text-purple-500" />
           </a>
@@ -68,9 +108,10 @@ export default function Navbar() {
           <a href="https://www.linkedin.com/in/alfred-makura-9b16a4208" target="_blank">
             <FaLinkedin className="hover:text-purple-500" />
           </a>
+
         </div>
 
-        {/* MOBILE MENU BUTTON */}
+        {/* MOBILE BUTTON */}
         <div className="md:hidden text-2xl" onClick={() => setOpen(!open)}>
           {open ? <HiX /> : <HiMenu />}
         </div>
@@ -80,18 +121,16 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden flex flex-col items-center gap-6 py-6 bg-white dark:bg-[#020617] text-gray-700 dark:text-gray-300">
 
-          <a href="#home" onClick={() => setOpen(false)}>Home</a>
-          <a href="#about" onClick={() => setOpen(false)}>About</a>
-          <a href="#tech" onClick={() => setOpen(false)}>Tech Stack</a>
-          <a href="#projects" onClick={() => setOpen(false)}>Projects</a>
-          <a href="#contact" onClick={() => setOpen(false)}>Contact</a>
+          <a href="#home" onClick={() => setOpen(false)} className={linkClass("home")}>Home</a>
+          <a href="#about" onClick={() => setOpen(false)} className={linkClass("about")}>About</a>
+          <a href="#tech" onClick={() => setOpen(false)} className={linkClass("tech")}>Tech Stack</a>
+          <a href="#projects" onClick={() => setOpen(false)} className={linkClass("projects")}>Projects</a>
+          <a href="#contact" onClick={() => setOpen(false)} className={linkClass("contact")}>Contact</a>
 
-          {/* THEME TOGGLE MOBILE */}
           <button onClick={toggleTheme} className="text-xl">
             {dark ? <FaSun /> : <FaMoon />}
           </button>
 
-          {/* SOCIALS */}
           <div className="flex gap-5 text-xl mt-4">
             <FaGithub />
             <FaTwitter />

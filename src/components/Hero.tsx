@@ -1,12 +1,20 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="flex flex-col md:flex-row items-center justify-between px-8 md:px-20 py-20 bg-white dark:bg-gray-900"
+      className="scroll-mt-24 flex flex-col md:flex-row items-center justify-between px-6 md:px-20 py-20"
     >
-      <div className="max-w-xl">
+      <motion.div
+        className="max-w-xl"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
         <h1 className="text-4xl md:text-6xl font-bold leading-tight">
           Hi 👋,<br />
           My name is <br />
@@ -17,12 +25,17 @@ export default function Hero() {
           Frontend Developer
         </p>
 
-        <p className="mt-3 text-gray-500 dark:text-gray-400">
+        <p className="mt-3 text-gray-500">
           I build modern, responsive, and visually stunning web experiences.
         </p>
-      </div>
+      </motion.div>
 
-      <div className="mt-10 md:mt-0">
+      <motion.div
+        className="mt-10 md:mt-0"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+      >
         <Image
           src="/images/profile.png"
           alt="Alfred Makura"
@@ -30,7 +43,7 @@ export default function Hero() {
           height={320}
           className="rounded-full border-4 border-purple-500"
         />
-      </div>
+      </motion.div>
     </section>
   );
 }

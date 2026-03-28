@@ -1,36 +1,134 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Alfred Makura Portfolio
 
-## Getting Started
+A modern, responsive personal portfolio website built to showcase my projects, skills, and experience as a Frontend Developer.
 
-First, run the development server:
+---
+
+## 🌐 Live Demo
+
+👉 https://alfred-makura-portfolio.vercel.app/
+
+---
+
+## ✨ Features
+
+* ⚡ Fully responsive design (mobile + desktop)
+* 🌙 Dark / Light mode toggle
+* 🎯 Active navigation highlighting
+* 🧭 Smooth scrolling between sections
+* 🎬 Scroll-based animations (Framer Motion)
+* 🧩 Modular and reusable components
+* 📱 Mobile-friendly hamburger menu
+
+---
+
+## 🛠️ Tech Stack
+
+* **Framework:** Next.js 16
+* **Styling:** Tailwind CSS
+* **Animations:** Framer Motion
+* **Icons:** React Icons
+* **Deployment:** Vercel
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+ ├── app/
+ │   ├── layout.tsx
+ │   ├── page.tsx
+ │   └── globals.css
+ │
+ ├── components/
+ │   ├── Navbar.tsx
+ │   ├── Hero.tsx
+ │   ├── About.tsx
+ │   ├── TechStack.tsx
+ │   ├── Projects.tsx
+ │   ├── ProjectCard.tsx
+ │   ├── Contact.tsx
+ │   └── Footer.tsx
+ │
+ └── data/
+     └── projects.ts
+```
+
+---
+
+## ⚙️ Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/alfred2504/my-portfolio.git
+cd my-portfolio
+```
+
+---
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+---
+
+### 3. Run development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Open in browser
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+http://localhost:3000
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📬 Contact
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* LinkedIn: https://www.linkedin.com/in/alfred-makura-9b16a4208
+* Twitter (X): https://x.com/makura_alfred
+* Facebook: https://www.facebook.com/alfred.makura.9
+* Email: [inforamaiv@gmail.com](mailto:inforamaiv@gmail.com)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 💡 Future Improvements
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* Add blog section
+* Add backend contact form
+* Improve SEO optimization
+* Add project filtering
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🧠 Inspiration
+
+This design was inspired by modern developer portfolio trends and refined using Figma-based layout planning.
+
+---
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+---
+
+## 🙌 Acknowledgements
+
+* Next.js team
+* Tailwind CSS
+* Framer Motion
+* React Icons
+
+---
+
+### ⭐ If you like this project, consider giving it a star!
