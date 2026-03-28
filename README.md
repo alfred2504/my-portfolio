@@ -97,7 +97,7 @@ http://localhost:3000
 * LinkedIn: https://www.linkedin.com/in/alfred-makura-9b16a4208
 * Twitter (X): https://x.com/makura_alfred
 * Facebook: https://www.facebook.com/alfred.makura.9
-* Email: [inforamaiv@gmail.com](mailto:inforamaiv@gmail.com)
+* Email: [alfredmakura6@gmail.com](mailto:alfredmakura6@gmail.com)
 
 ---
 
