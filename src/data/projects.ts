@@ -21,7 +21,7 @@ export const projects: Project[] = [
     description: "A full-stack app to track daily expenses and manage budgets.",
     tech: "React, Node.js, MongoDB",
     github: "https://github.com/alfred2504/amak_tech_market_place",
-    live: "https://alfred2504.github.io/amaktech-expense-tracker/",
+    live: "https://amaktech-smartexpense-ai.vercel.app/",
     image: "/images/project2.png",
   },
   {
