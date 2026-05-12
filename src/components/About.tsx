@@ -23,7 +23,12 @@ export default function About() {
       >
         I am a passionate Frontend Developer dedicated to building modern, 
         responsive, and user-friendly web applications using React, Next.js, 
-        and Tailwind CSS.
+        and Tailwind CSS. I graduated from Chris DesignX Academy and continue 
+        to grow my skills in modern frontend technologies and UI development. 
+        I enjoy creating clean, interactive, and visually appealing digital 
+        experiences that solve real-world problems. Beyond development, I am 
+        also passionate about technology education, innovation, and building 
+        impactful solutions through AmakTech Solutions.
       </motion.p>
 
     </section>
